@@ -1,8 +1,15 @@
 r-intro
-opdracht-1a-curriculum-vitae
+curriculum-vitae
 persoonlijke-gegevens
 opleidingen
 werkervaring
 skills
-opdracht-1b-plan-voor-toekomst
+plan-voor-toekomst
 droombaan
+welke-skills-heb-ik
+vrije-opdracht
+planning
+onderwerp
+data-werwerking-rna-sequenicing
+de-organisatie
+organisatie-eigen-portofolio-in-r
