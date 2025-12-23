@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Mijn portofolio</title>
-  <meta name="description" content="Mijn portofolio" />
+  <title>8 Data anlyse van een ander | Mijn portofolio</title>
+  <meta name="description" content="8 Data anlyse van een ander | Mijn portofolio" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Mijn portofolio" />
+  <meta property="og:title" content="8 Data anlyse van een ander | Mijn portofolio" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Mijn portofolio" />
+  <meta name="twitter:title" content="8 Data anlyse van een ander | Mijn portofolio" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="organisatie-eigen-portofolio-in-r.html"/>
 
-<link rel="next" href="curriculum-vitae.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -190,23 +190,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Mijn portofolio</h1>
-<p class="author"><em>Thijs Niesing</em></p>
+<div id="data-anlyse-van-een-ander" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Data anlyse van een ander<a href="data-anlyse-van-een-ander.html#data-anlyse-van-een-ander" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-anlyse-van-een-ander.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="data-anlyse-van-een-ander.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="data-anlyse-van-een-ander.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div id="importeren-data" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Importeren data<a href="data-anlyse-van-een-ander.html#importeren-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-anlyse-van-een-ander.html#cb2-1" tabindex="-1"></a>Ruwe_data_elegans<span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~/Workflows/PortofolioThijsNiesing/data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span>
+<span id="cb2-2"><a href="data-anlyse-van-een-ander.html#cb2-2" tabindex="-1"></a><span class="co"># Aanpassen datatype van concentratie</span></span>
+<span id="cb2-3"><a href="data-anlyse-van-een-ander.html#cb2-3" tabindex="-1"></a>Ruwe_data_elegans<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(Ruwe_data_elegans<span class="sc">$</span>compConcentration)</span></code></pre></div>
 </div>
-<div id="r-intro" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> R intro<a href="index.html#r-intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>test</p>
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+<div id="maken-van-plot" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Maken van plot<a href="data-anlyse-van-een-ander.html#maken-van-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-anlyse-van-een-ander.html#cb3-1" tabindex="-1"></a>Ruwe_data_elegans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href="data-anlyse-van-een-ander.html#cb3-2" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;ruwe data op de y-as tegenover de logaritmische concentratie op de x-as&quot;</span>,</span>
+<span id="cb3-3"><a href="data-anlyse-van-een-ander.html#cb3-3" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">&quot;logarimtische concentratie&quot;</span>,</span>
+<span id="cb3-4"><a href="data-anlyse-van-een-ander.html#cb3-4" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;ruwe data&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="normaliseren-data" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Normaliseren data<a href="data-anlyse-van-een-ander.html#normaliseren-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-anlyse-van-een-ander.html#cb4-1" tabindex="-1"></a>mean_control <span class="ot">&lt;-</span> Ruwe_data_elegans <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="data-anlyse-van-een-ander.html#cb4-2" tabindex="-1"></a>  <span class="fu">filter</span>(expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="data-anlyse-van-een-ander.html#cb4-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(RawData, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="data-anlyse-van-een-ander.html#cb4-4" tabindex="-1"></a>  <span class="fu">pull</span>(mean_value)</span>
+<span id="cb4-5"><a href="data-anlyse-van-een-ander.html#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="data-anlyse-van-een-ander.html#cb4-6" tabindex="-1"></a>Ruwe_data_elegans_norm <span class="ot">&lt;-</span> Ruwe_data_elegans <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="data-anlyse-van-een-ander.html#cb4-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-8"><a href="data-anlyse-van-een-ander.html#cb4-8" tabindex="-1"></a>    <span class="at">NormalizedData =</span> RawData <span class="sc">/</span> mean_control</span>
+<span id="cb4-9"><a href="data-anlyse-van-een-ander.html#cb4-9" tabindex="-1"></a>  )</span>
+<span id="cb4-10"><a href="data-anlyse-van-een-ander.html#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="data-anlyse-van-een-ander.html#cb4-11" tabindex="-1"></a>Ruwe_data_elegans_norm <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> NormalizedData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
+<span id="cb4-12"><a href="data-anlyse-van-een-ander.html#cb4-12" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-13"><a href="data-anlyse-van-een-ander.html#cb4-13" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb4-14"><a href="data-anlyse-van-een-ander.html#cb4-14" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="data-anlyse-van-een-ander.html#cb4-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;De ruwe data als genormaliseerde data op de y-as tegen de concentratie </span><span class="sc">\n</span><span class="st"> op de x-as. Er is een lijn voor de 1 waarde </span><span class="sc">\n</span><span class="st"> van de negatieve controle&quot;</span>,</span>
+<span id="cb4-16"><a href="data-anlyse-van-een-ander.html#cb4-16" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Concentratie op logaritmische schaal&quot;</span>,</span>
+<span id="cb4-17"><a href="data-anlyse-van-een-ander.html#cb4-17" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Genormaliseerde waarde tegen de negatieve controle&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="uitleg-analyse" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Uitleg analyse<a href="data-anlyse-van-een-ander.html#uitleg-analyse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="wat-de-negatieve-en-de-positieve-controle-in-het-experiment-zijn." class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Wat de negatieve en de positieve controle in het experiment zijn.<a href="data-anlyse-van-een-ander.html#wat-de-negatieve-en-de-positieve-controle-in-het-experiment-zijn." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In het experiment is de positieve controle ethanol. Hierin wordt verwacht dat de C.elegans minder nakomelingen maakt. De negatieve controle is S-medium. Dit is het medium waar C.elegans normaal wordt in gekweekt. Dit is dus de natuurlijke omgeving van C.elegans</p>
+</div>
+<div id="wat-het-nut-van-de-verschillende-controles-positief-negatief-en-vehicle-is." class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Wat het nut van de verschillende controles (positief, negatief en vehicle) is.<a href="data-anlyse-van-een-ander.html#wat-het-nut-van-de-verschillende-controles-positief-negatief-en-vehicle-is." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Bij de positive controle wordt er gekeken of het experiment uit te voeren is. Dit wordt gedaan door een stof te gebruiken waarbij je weet dat het doel zeker werkt.
+De negatieve controle houd in dat er gekeken wordt wat er gebeurd als er een stof wordt toegevoegd die geen effect heeft op de C.elegans.
+De vehicle controle is een controle die de C.elegans blootstelt aan de stof waarin de te testen stof wordt verdund.</p>
+</div>
+<div id="wat-het-nut-is-van-de-normalisatie-die-je-hebt-uitgevoerd-dus-het-nut-van-alle-waarden-uitdrukken-als-fractie-van-de-negatieve-controle." class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> Wat het nut is van de normalisatie die je hebt uitgevoerd (dus het nut van alle waarden uitdrukken als fractie van de negatieve controle).<a href="data-anlyse-van-een-ander.html#wat-het-nut-is-van-de-normalisatie-die-je-hebt-uitgevoerd-dus-het-nut-van-alle-waarden-uitdrukken-als-fractie-van-de-negatieve-controle." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Het normaliseren van de data heeft als voornaamste reden het corrigeren van de natuurlijke variatie. Denk hierbij aan bijvoorbeeld het meten op verschillende dagen en ook pipetteerfouten
+Ook is er goed te zien wat de resultaten inhouden. Boven de streep van de normalisatie betekend dat het toeneemt ten opzichte van de negatieve controle en eronder betekend een afname ten opzichte van de negative controle.</p>
+</div>
+</div>
+<div id="stappenplan-vervolgonderzoek" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Stappenplan vervolgonderzoek<a href="data-anlyse-van-een-ander.html#stappenplan-vervolgonderzoek" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="organisatie-eigen-portofolio-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="curriculum-vitae.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

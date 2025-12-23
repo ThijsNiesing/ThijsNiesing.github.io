@@ -1,5 +1,6 @@
 r-intro
 curriculum-vitae
+volgorde-werk-en-school-andersom
 persoonlijke-gegevens
 opleidingen
 werkervaring
@@ -13,3 +14,12 @@ onderwerp
 data-werwerking-rna-sequenicing
 de-organisatie
 organisatie-eigen-portofolio-in-r
+data-anlyse-van-een-ander
+importeren-data
+maken-van-plot
+normaliseren-data
+uitleg-analyse
+wat-de-negatieve-en-de-positieve-controle-in-het-experiment-zijn.
+wat-het-nut-van-de-verschillende-controles-positief-negatief-en-vehicle-is.
+wat-het-nut-is-van-de-normalisatie-die-je-hebt-uitgevoerd-dus-het-nut-van-alle-waarden-uitdrukken-als-fractie-van-de-negatieve-controle.
+stappenplan-vervolgonderzoek
