@@ -1,6 +1,5 @@
 r-intro
 curriculum-vitae
-volgorde-werk-en-school-andersom
 persoonlijke-gegevens
 opleidingen
 werkervaring
@@ -23,3 +22,10 @@ wat-de-negatieve-en-de-positieve-controle-in-het-experiment-zijn.
 wat-het-nut-van-de-verschillende-controles-positief-negatief-en-vehicle-is.
 wat-het-nut-is-van-de-normalisatie-die-je-hebt-uitgevoerd-dus-het-nut-van-alle-waarden-uitdrukken-als-fractie-van-de-negatieve-controle.
 stappenplan-vervolgonderzoek
+het-beoordelen-van-een-artikel-op-reproduceerbaarheid
+achtergrondinformatie-artikel
+beoordelen-reproduceerbaarheid
+reproduceerbaarheid-testen
+leesbaarheid-script
+wat-doet-het-script
+uitvoeren-van-het-script
