@@ -29,3 +29,6 @@ reproduceerbaarheid-testen
 leesbaarheid-script
 wat-doet-het-script
 uitvoeren-van-het-script
+het-maken-van-een-r-pakket
+introductie-projecticum
+referentie-naar-citaten-in-introductie
