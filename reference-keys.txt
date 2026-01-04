@@ -1,4 +1,4 @@
-r-intro
+mijn-portofolio
 curriculum-vitae
 persoonlijke-gegevens
 opleidingen
@@ -9,7 +9,11 @@ droombaan
 welke-skills-heb-ik
 vrije-opdracht
 planning
-onderwerp
+tijd-verdelen
+wanneer-tevreden
+wat-is-shiny
+hoe-werkt-shiny
+voorbeeldvideo
 data-werwerking-rna-sequenicing
 de-organisatie
 organisatie-eigen-portofolio-in-r
@@ -30,5 +34,8 @@ leesbaarheid-script
 wat-doet-het-script
 uitvoeren-van-het-script
 het-maken-van-een-r-pakket
+het-gebruik-van-parameters-in-een-r-markdowm
+voorbeeld-van-de-rmarkdown
+instructiefilmpje-gebruik-markdown
 introductie-projecticum
 referentie-naar-citaten-in-introductie
